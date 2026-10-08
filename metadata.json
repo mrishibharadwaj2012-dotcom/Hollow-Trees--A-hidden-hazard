@@ -1,0 +1,6 @@
+{
+  "name": "Assessment of Internal Trunk Cavities in Trees",
+  "description": "National Children's Science Congress (NCSC) project investigating non-destructive ultrasonic wave transmission for preliminary assessment of hidden internal tree defects.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
