@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowUp, Radio, TreePine, Award, Shield } from 'lucide-react';
 import { PROJECT_METADATA } from '../data/projectData';
+import { TreeCavitySvgLogo } from './Logo';
 
 export const Footer: React.FC = () => {
   const scrollToTop = () => {
@@ -14,15 +15,7 @@ export const Footer: React.FC = () => {
           {/* Col 1: Project Identity */}
           <div className="md:col-span-6 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-emerald-800/60 border border-emerald-700/80 flex items-center justify-center text-emerald-300">
-                {/* Tree + Ultrasonic Wave Icon */}
-                <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M12 22V13" stroke="currentColor" strokeWidth="2.5" />
-                  <path d="M12 13C8 13 6 10 6 7a6 6 0 0 1 12 0c0 3-2 6-6 6Z" stroke="currentColor" />
-                  <path d="M4 14c2-1 4-1 6 0" stroke="#38BDF8" strokeWidth="1.5" />
-                  <path d="M14 14c2-1 4-1 6 0" stroke="#38BDF8" strokeWidth="1.5" />
-                </svg>
-              </div>
+              <TreeCavitySvgLogo sizeClass="w-11 h-11" />
               <div>
                 <span className="font-mono text-xs uppercase tracking-wider text-emerald-400 font-semibold block">
                   Student Research Project | NCSC

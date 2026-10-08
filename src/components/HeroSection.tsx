@@ -41,9 +41,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreResearch, onV
         </h1>
 
         {/* Subtitle with Scientific Tooltips */}
-        <p className="text-lg sm:text-xl md:text-2xl text-stone-700 leading-relaxed max-w-3xl font-light mb-8">
+        <div className="text-lg sm:text-xl md:text-2xl text-stone-700 leading-relaxed max-w-3xl font-light mb-8">
           A <ScientificTooltip term="Non-Destructive Testing (NDT)">non-destructive</ScientificTooltip>, <ScientificTooltip term="Ultrasonic Waves">ultrasonic-wave-based</ScientificTooltip> approach for preliminary assessment of hidden internal defects in trees.
-        </p>
+        </div>
 
         {/* Two Prominent Action Buttons */}
         <div className="flex flex-wrap items-center gap-4 mb-10">

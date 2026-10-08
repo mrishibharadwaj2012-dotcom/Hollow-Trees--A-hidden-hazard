@@ -100,9 +100,9 @@ export const ScientificPrincipleSection: React.FC = () => {
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-stone-900 tracking-tight leading-tight">
             How Can Ultrasonic Waves Reveal What We Cannot See?
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-stone-700 leading-relaxed font-light">
+          <div className="mt-4 text-base sm:text-lg text-stone-700 leading-relaxed font-light">
             An <ScientificTooltip term="Transmitter (T)">ultrasonic transmitter</ScientificTooltip> sends high-frequency mechanical waves through the tree trunk. The waves travel through the wood and are received by a <ScientificTooltip term="Receiver (R)">receiver</ScientificTooltip> placed at another point on the trunk. Internal <ScientificTooltip term="Cavity">cavities</ScientificTooltip>, <ScientificTooltip term="Wood Decay">decay</ScientificTooltip> and changes in wood structure alter the transmission of these waves.
-          </p>
+          </div>
         </div>
 
         {/* INTERACTIVE SIMULATION WORKBENCH */}
@@ -667,9 +667,9 @@ export const ScientificPrincipleSection: React.FC = () => {
             <h4 className="font-serif text-base font-bold text-stone-900 mb-2">
               <ScientificTooltip term="Acoustic Impedance">Acoustic Impedance</ScientificTooltip> Mismatch
             </h4>
-            <p className="text-xs text-stone-600 leading-relaxed">
+            <div className="text-xs text-stone-600 leading-relaxed">
               Acoustic impedance Z = ρ · v. Solid timber has an impedance ~3600 times greater than air. When an ultrasonic pulse hits an internal air pocket, over 99.9% of the acoustic energy is reflected rather than transmitted across the air void.
-            </p>
+            </div>
           </div>
 
           <div className="p-5 rounded-xl bg-stone-50 border border-stone-200">
@@ -677,9 +677,9 @@ export const ScientificPrincipleSection: React.FC = () => {
             <h4 className="font-serif text-base font-bold text-stone-900 mb-2">
               Wave Diffraction & Longer Path
             </h4>
-            <p className="text-xs text-stone-600 leading-relaxed">
+            <div className="text-xs text-stone-600 leading-relaxed">
               Because waves cannot pierce the central air hole, mechanical energy must diffract around the circumference through the remaining sound sapwood. This detoured path is physically longer, generating a noticeable transit time delay (<ScientificTooltip term="Time of Flight (ToF)">Time of Flight</ScientificTooltip>).
-            </p>
+            </div>
           </div>
 
           <div className="p-5 rounded-xl bg-stone-50 border border-stone-200">
@@ -687,9 +687,9 @@ export const ScientificPrincipleSection: React.FC = () => {
             <h4 className="font-serif text-base font-bold text-stone-900 mb-2">
               Scattering in Decayed Wood
             </h4>
-            <p className="text-xs text-stone-600 leading-relaxed">
+            <div className="text-xs text-stone-600 leading-relaxed">
               Before an open hole forms, fungal rot softens wood into spongey material. These micro-pores scatter the ultrasonic frequencies, absorbing wave energy and causing sharp amplitude damping at the receiver (low <ScientificTooltip term="T/R ratio">T/R ratio</ScientificTooltip>).
-            </p>
+            </div>
           </div>
         </div>
       </div>

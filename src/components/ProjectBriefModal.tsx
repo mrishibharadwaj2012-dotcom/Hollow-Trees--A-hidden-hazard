@@ -1,6 +1,7 @@
 import React from 'react';
 import { X, Printer, FileText, CheckCircle2, ShieldCheck, Download, BookOpen } from 'lucide-react';
 import { PROJECT_METADATA, CORE_OBJECTIVES, METHODOLOGY_STEPS, LIMITATIONS_LIST, TEAM_MEMBERS } from '../data/projectData';
+import { TreeCavitySvgLogo } from './Logo';
 
 interface ProjectBriefModalProps {
   isOpen: boolean;
@@ -21,9 +22,7 @@ export const ProjectBriefModal: React.FC<ProjectBriefModalProps> = ({ isOpen, on
         {/* Modal Top Bar */}
         <div className="p-4 sm:p-6 border-b border-stone-200 flex items-center justify-between bg-stone-50 sticky top-0 z-20">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded bg-[#163828] text-white flex items-center justify-center font-bold font-mono text-xs">
-              NCSC
-            </div>
+            <TreeCavitySvgLogo sizeClass="w-9 h-9" />
             <div>
               <h3 className="font-serif text-lg font-bold text-stone-900 leading-tight">
                 Official NCSC Project Executive Summary
