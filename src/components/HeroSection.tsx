@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { ArrowDown, Radio, Shield, TreePine, ChevronRight, Activity, Info } from 'lucide-react';
+import { ArrowDown, Radio, Shield, TreePine, ChevronRight, Activity, Info, Users } from 'lucide-react';
 import heroImage from '../assets/images/tree_cavity_ultrasonic_hero_1791437243264.jpg';
+import { ScientificTooltip } from './ScientificTooltip';
 
 interface HeroSectionProps {
   onExploreResearch: () => void;
@@ -16,13 +17,15 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreResearch, onV
       <div className="absolute inset-0 bg-radial from-emerald-950/5 via-transparent to-transparent pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        {/* Academic Congress Header Kicker */}
-        <div className="flex items-center gap-2 text-xs text-stone-600 mb-4 tracking-wide font-medium">
+        {/* Academic Congress Header Kicker with Nilesh Patra and Rishi Bharadwaj */}
+        <div className="flex flex-wrap items-center gap-2 text-xs text-stone-600 mb-4 tracking-wide font-medium">
           <span className="text-[#163828] font-bold">National Children&apos;s Science Congress</span>
           <span aria-hidden="true" className="text-stone-300">/</span>
-          <span>Junior Research Division</span>
+          <span>Junior / Senior Research Division</span>
           <span aria-hidden="true" className="text-stone-300">/</span>
-          <span>School & IIT Kharagpur Mentorship</span>
+          <span className="text-stone-800 font-semibold bg-emerald-100/70 px-2 py-0.5 rounded">
+            Student Investigators: Nilesh Patra & Rishi Bharadwaj
+          </span>
         </div>
 
         {/* Small introductory heading */}
@@ -37,16 +40,16 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreResearch, onV
           Assessment of Internal Trunk Cavities in Trees for Predicting Structural Failure and Reducing Risk to Human Life
         </h1>
 
-        {/* Subtitle */}
+        {/* Subtitle with Scientific Tooltips */}
         <p className="text-lg sm:text-xl md:text-2xl text-stone-700 leading-relaxed max-w-3xl font-light mb-8">
-          A non-destructive, ultrasonic-wave-based approach for preliminary assessment of hidden internal defects in trees.
+          A <ScientificTooltip term="Non-Destructive Testing (NDT)">non-destructive</ScientificTooltip>, <ScientificTooltip term="Ultrasonic Waves">ultrasonic-wave-based</ScientificTooltip> approach for preliminary assessment of hidden internal defects in trees.
         </p>
 
         {/* Two Prominent Action Buttons */}
         <div className="flex flex-wrap items-center gap-4 mb-10">
           <button
             onClick={onExploreResearch}
-            className="inline-flex items-center justify-center px-6 py-3.5 text-sm font-semibold rounded-md bg-[#163828] text-white hover:bg-[#0f281d] transition-all shadow-sm hover:shadow-md cursor-pointer group"
+            className="inline-flex items-center justify-center px-6 py-3.5 text-sm font-semibold rounded-md bg-[#163828] text-white hover:bg-[#0f281d] transition-all shadow-xs hover:shadow-sm cursor-pointer group"
           >
             <span>Explore Our Research</span>
             <ChevronRight className="w-4 h-4 ml-1.5 transition-transform group-hover:translate-x-1 text-emerald-300" />
@@ -54,7 +57,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreResearch, onV
 
           <button
             onClick={onViewMethod}
-            className="inline-flex items-center justify-center px-6 py-3.5 text-sm font-semibold rounded-md border border-stone-300 bg-white text-stone-900 hover:bg-stone-50 hover:border-stone-400 transition-all shadow-xs cursor-pointer"
+            className="inline-flex items-center justify-center px-6 py-3.5 text-sm font-semibold rounded-md border border-stone-300 bg-white text-stone-900 hover:bg-stone-50 hover:border-stone-400 transition-all shadow-2xs cursor-pointer"
           >
             <span>View Our Method</span>
           </button>
@@ -68,7 +71,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreResearch, onV
               “Healthy-looking trees can sometimes hide serious internal defects.”
             </p>
             <p className="text-xs sm:text-sm text-stone-700 mt-1 leading-normal">
-              A preliminary screening approach to investigate internal stem conditions without wounding living cambium or demanding premature tree felling.
+              A preliminary screening approach by <strong>Nilesh Patra & Rishi Bharadwaj</strong> to investigate internal stem conditions without wounding living cambium or demanding premature tree felling.
             </p>
           </div>
         </div>
@@ -97,7 +100,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreResearch, onV
               </div>
             </div>
 
-            {/* Interactive Hotspots on the trunk */}
             {/* Hotspot 1: Transmitter (Left) */}
             <button
               onClick={() => setActiveHotspot(activeHotspot === 'transmitter' ? null : 'transmitter')}

@@ -18,11 +18,20 @@ import { ConclusionSection } from './components/ConclusionSection';
 import { NCSCJourneySection } from './components/NCSCJourneySection';
 import { TeamSection } from './components/TeamSection';
 import { LiteratureExplorer } from './components/LiteratureExplorer';
+import { GlossarySection } from './components/GlossarySection';
 import { Footer } from './components/Footer';
 import { ProjectBriefModal } from './components/ProjectBriefModal';
+import { GlossaryModal } from './components/GlossaryModal';
 
 export default function App() {
   const [isBriefModalOpen, setIsBriefModalOpen] = useState(false);
+  const [isGlossaryModalOpen, setIsGlossaryModalOpen] = useState(false);
+  const [activeGlossaryTerm, setActiveGlossaryTerm] = useState<string | null>(null);
+
+  const handleOpenGlossary = (termKey?: string) => {
+    setActiveGlossaryTerm(termKey || null);
+    setIsGlossaryModalOpen(true);
+  };
 
   const handleExploreResearch = () => {
     const el = document.getElementById('research');
@@ -41,7 +50,10 @@ export default function App() {
   return (
     <div className="min-h-screen bg-[#F8F9F5] text-stone-900 font-sans selection:bg-[#163828] selection:text-white">
       {/* Sticky Navigation Bar */}
-      <Navbar onOpenBrief={() => setIsBriefModalOpen(true)} />
+      <Navbar
+        onOpenBrief={() => setIsBriefModalOpen(true)}
+        onOpenGlossary={handleOpenGlossary}
+      />
 
       {/* Main Content Layout */}
       <main>
@@ -63,7 +75,7 @@ export default function App() {
         {/* Section 04: Field Survey (IIT Kharagpur) */}
         <FieldSurveySection />
 
-        {/* Section 05: Scientific Principle (Centerpiece) */}
+        {/* Section 05: Scientific Principle & Dynamic Wave Simulator */}
         <ScientificPrincipleSection />
 
         {/* Section 06: T/R Ratio */}
@@ -101,6 +113,9 @@ export default function App() {
 
         {/* Section 17: Grounded Arboricultural Reference Explorer */}
         <LiteratureExplorer />
+
+        {/* Section 18: Scientific Glossary & Lexicon */}
+        <GlossarySection onOpenModal={handleOpenGlossary} />
       </main>
 
       {/* Footer */}
@@ -110,6 +125,14 @@ export default function App() {
       <ProjectBriefModal
         isOpen={isBriefModalOpen}
         onClose={() => setIsBriefModalOpen(false)}
+        onOpenGlossary={() => handleOpenGlossary()}
+      />
+
+      {/* Scientific Glossary Modal */}
+      <GlossaryModal
+        isOpen={isGlossaryModalOpen}
+        onClose={() => setIsGlossaryModalOpen(false)}
+        initialTerm={activeGlossaryTerm}
       />
     </div>
   );

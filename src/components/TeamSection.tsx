@@ -1,19 +1,18 @@
 import React, { useState } from 'react';
-import { User, Users, GraduationCap, School, Calendar, Award, Edit3, Check } from 'lucide-react';
+import { User, Users, GraduationCap, School, Calendar, Award, Edit3, Check, BookOpen } from 'lucide-react';
 import { PROJECT_METADATA } from '../data/projectData';
 
 export const TeamSection: React.FC = () => {
-  // Allow editable placeholders directly from UI so team can personalize their exhibition details
   const [isEditing, setIsEditing] = useState(false);
   const [ncscYear, setNcscYear] = useState('2025–2026');
   const [schoolName, setSchoolName] = useState('Kendriya Vidyalaya / High School (IIT Kharagpur Cluster)');
-  const [student1Name, setStudent1Name] = useState('Student Lead Investigator');
-  const [student1Class, setStudent1Class] = useState('Class 9-A');
-  const [student2Name, setStudent2Name] = useState('Student Co-Investigator');
-  const [student2Class, setStudent2Class] = useState('Class 9-B');
+  const [student1Name, setStudent1Name] = useState('Nilesh Patra');
+  const [student1Class, setStudent1Class] = useState('Senior Division / High School');
+  const [student2Name, setStudent2Name] = useState('Rishi Bharadwaj');
+  const [student2Class, setStudent2Class] = useState('Senior Division / High School');
   const [guideTeacher, setGuideTeacher] = useState('Science Teacher / Project Guide');
   const [guideAffiliation, setGuideAffiliation] = useState('Department of Science & Physics');
-  const [facultyCoordinator, setFacultyCoordinator] = useState('Academic Coordinator / Mentor');
+  const [facultyCoordinator, setFacultyCoordinator] = useState('IIT Kharagpur Campus Mentorship Program');
 
   return (
     <section id="team" className="py-16 md:py-24 bg-[#F8F9F5] border-b border-stone-200">
@@ -34,7 +33,7 @@ export const TeamSection: React.FC = () => {
         {/* Project Credentials Header & Year Banner */}
         <div className="bg-white rounded-xl border border-stone-300 p-6 mb-10 shadow-xs flex flex-wrap items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-lg bg-[#163828] text-white flex items-center justify-center font-bold font-serif text-base">
+            <div className="w-10 h-10 rounded-lg bg-[#163828] text-white flex items-center justify-center font-bold font-mono text-sm">
               NCSC
             </div>
             <div>
@@ -42,7 +41,7 @@ export const TeamSection: React.FC = () => {
                 Official NCSC Project Registration
               </div>
               <div className="text-xs text-stone-600">
-                Senior / Junior Division · Science & Technology for Disaster Risk Reduction
+                Senior Division · Science, Technology & Innovation for Sustainable Development
               </div>
             </div>
           </div>
@@ -57,7 +56,7 @@ export const TeamSection: React.FC = () => {
               className="inline-flex items-center gap-1 px-3 py-1.5 rounded-md border border-stone-300 text-stone-700 bg-stone-50 hover:bg-stone-100 transition-colors text-xs font-semibold cursor-pointer"
             >
               <Edit3 className="w-3.5 h-3.5" />
-              <span>{isEditing ? 'Save Changes' : 'Edit Placeholders'}</span>
+              <span>{isEditing ? 'Save Changes' : 'Edit Credentials'}</span>
             </button>
           </div>
         </div>
@@ -97,7 +96,7 @@ export const TeamSection: React.FC = () => {
                 />
               </div>
               <div>
-                <label className="block font-semibold text-stone-800 mb-1">Student 1 Class & Section</label>
+                <label className="block font-semibold text-stone-800 mb-1">Student 1 Class & Division</label>
                 <input
                   type="text"
                   value={student1Class}
@@ -115,7 +114,7 @@ export const TeamSection: React.FC = () => {
                 />
               </div>
               <div>
-                <label className="block font-semibold text-stone-800 mb-1">Student 2 Class & Section</label>
+                <label className="block font-semibold text-stone-800 mb-1">Student 2 Class & Division</label>
                 <input
                   type="text"
                   value={student2Class}
@@ -147,7 +146,7 @@ export const TeamSection: React.FC = () => {
                 onClick={() => setIsEditing(false)}
                 className="px-4 py-2 bg-[#163828] text-white rounded text-xs font-semibold cursor-pointer"
               >
-                Done Editing
+                Save Details
               </button>
             </div>
           </div>
@@ -155,51 +154,53 @@ export const TeamSection: React.FC = () => {
 
         {/* Team Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {/* Card 1: Student Lead */}
-          <div className="bg-white rounded-xl p-6 border border-stone-300 shadow-xs flex flex-col justify-between">
+          {/* Card 1: Nilesh Patra */}
+          <div className="bg-white rounded-xl p-6 border-2 border-emerald-900/20 shadow-xs flex flex-col justify-between hover:border-emerald-800 transition-colors">
             <div>
-              <div className="w-12 h-12 rounded-full bg-[#163828]/10 text-[#163828] flex items-center justify-center mb-4">
-                <User className="w-6 h-6" />
+              <div className="w-12 h-12 rounded-full bg-[#163828] text-emerald-300 flex items-center justify-center mb-4 font-serif font-bold text-lg">
+                NP
               </div>
               <span className="font-mono text-xs font-bold text-[#8B5A2B] uppercase">
                 Student Lead Investigator
               </span>
-              <h3 className="font-serif text-lg font-bold text-stone-900 mt-1 mb-1">
+              <h3 className="font-serif text-xl font-bold text-stone-900 mt-1 mb-1">
                 {student1Name}
               </h3>
               <div className="text-xs text-stone-600 font-mono mb-3">
-                Class: {student1Class}
+                {student1Class}
               </div>
               <p className="text-xs text-stone-600 leading-relaxed">
-                Project conceptualization, literature review, ultrasonic wave equations, and field methodology design.
+                Project conceptualization, ultrasonic stress wave propagation modeling, wave delay calculations, and methodology development.
               </p>
             </div>
-            <div className="mt-5 pt-3 border-t border-stone-100 text-[11px] font-mono text-stone-500">
-              Primary Presenter
+            <div className="mt-5 pt-3 border-t border-stone-100 text-[11px] font-mono text-emerald-800 font-semibold flex items-center gap-1.5">
+              <Award className="w-3.5 h-3.5" />
+              <span>Lead Presenter & Wave Modeling</span>
             </div>
           </div>
 
-          {/* Card 2: Student Co-Investigator */}
-          <div className="bg-white rounded-xl p-6 border border-stone-300 shadow-xs flex flex-col justify-between">
+          {/* Card 2: Rishi Bharadwaj */}
+          <div className="bg-white rounded-xl p-6 border-2 border-emerald-900/20 shadow-xs flex flex-col justify-between hover:border-emerald-800 transition-colors">
             <div>
-              <div className="w-12 h-12 rounded-full bg-[#163828]/10 text-[#163828] flex items-center justify-center mb-4">
-                <User className="w-6 h-6" />
+              <div className="w-12 h-12 rounded-full bg-[#163828] text-emerald-300 flex items-center justify-center mb-4 font-serif font-bold text-lg">
+                RB
               </div>
               <span className="font-mono text-xs font-bold text-[#8B5A2B] uppercase">
-                Student Co-Investigator
+                Student Lead Investigator
               </span>
-              <h3 className="font-serif text-lg font-bold text-stone-900 mt-1 mb-1">
+              <h3 className="font-serif text-xl font-bold text-stone-900 mt-1 mb-1">
                 {student2Name}
               </h3>
               <div className="text-xs text-stone-600 font-mono mb-3">
-                Class: {student2Class}
+                {student2Class}
               </div>
               <p className="text-xs text-stone-600 leading-relaxed">
-                Campus tree observations, physical demonstration model fabrication, logbook maintenance, and exhibition display.
+                IIT Kharagpur campus field survey documentation, physical static model fabrication, logbook analysis, and exhibition presentation.
               </p>
             </div>
-            <div className="mt-5 pt-3 border-t border-stone-100 text-[11px] font-mono text-stone-500">
-              Field & Hardware Lead
+            <div className="mt-5 pt-3 border-t border-stone-100 text-[11px] font-mono text-emerald-800 font-semibold flex items-center gap-1.5">
+              <Award className="w-3.5 h-3.5" />
+              <span>Field Systems & Hardware Lead</span>
             </div>
           </div>
 

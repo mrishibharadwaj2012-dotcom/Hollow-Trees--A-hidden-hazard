@@ -1,13 +1,14 @@
 import React from 'react';
-import { X, Printer, FileText, CheckCircle2, ShieldCheck, Download } from 'lucide-react';
-import { PROJECT_METADATA, CORE_OBJECTIVES, METHODOLOGY_STEPS, LIMITATIONS_LIST } from '../data/projectData';
+import { X, Printer, FileText, CheckCircle2, ShieldCheck, Download, BookOpen } from 'lucide-react';
+import { PROJECT_METADATA, CORE_OBJECTIVES, METHODOLOGY_STEPS, LIMITATIONS_LIST, TEAM_MEMBERS } from '../data/projectData';
 
 interface ProjectBriefModalProps {
   isOpen: boolean;
   onClose: () => void;
+  onOpenGlossary?: () => void;
 }
 
-export const ProjectBriefModal: React.FC<ProjectBriefModalProps> = ({ isOpen, onClose }) => {
+export const ProjectBriefModal: React.FC<ProjectBriefModalProps> = ({ isOpen, onClose, onOpenGlossary }) => {
   if (!isOpen) return null;
 
   const handlePrint = () => {
@@ -15,7 +16,7 @@ export const ProjectBriefModal: React.FC<ProjectBriefModalProps> = ({ isOpen, on
   };
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto bg-stone-900/70 backdrop-blur-xs flex items-center justify-center p-4 sm:p-6">
+    <div className="fixed inset-0 z-50 overflow-y-auto bg-stone-900/70 backdrop-blur-xs flex items-center justify-center p-3 sm:p-6 animate-in fade-in">
       <div className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-stone-300 relative flex flex-col">
         {/* Modal Top Bar */}
         <div className="p-4 sm:p-6 border-b border-stone-200 flex items-center justify-between bg-stone-50 sticky top-0 z-20">
@@ -34,6 +35,18 @@ export const ProjectBriefModal: React.FC<ProjectBriefModalProps> = ({ isOpen, on
           </div>
 
           <div className="flex items-center gap-2">
+            {onOpenGlossary && (
+              <button
+                onClick={() => {
+                  onClose();
+                  onOpenGlossary();
+                }}
+                className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded border border-stone-300 bg-white hover:bg-stone-50 text-stone-700 cursor-pointer"
+              >
+                <BookOpen className="w-3.5 h-3.5 text-stone-600" />
+                <span>Glossary</span>
+              </button>
+            )}
             <button
               onClick={handlePrint}
               className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded border border-stone-300 bg-white hover:bg-stone-50 text-stone-700 cursor-pointer"
@@ -53,17 +66,29 @@ export const ProjectBriefModal: React.FC<ProjectBriefModalProps> = ({ isOpen, on
 
         {/* Printable Project Document Content */}
         <div className="p-6 sm:p-8 space-y-8 text-stone-800 text-xs sm:text-sm">
-          {/* Header Block */}
+          {/* Header Block with Authors */}
           <div className="border-b border-stone-200 pb-6">
             <div className="text-xs font-mono uppercase tracking-widest text-[#8B5A2B] font-bold mb-1">
-              Project Title
+              NCSC Project Title
             </div>
             <h1 className="font-serif text-2xl sm:text-3xl font-bold text-stone-900 leading-snug">
               {PROJECT_METADATA.title}
             </h1>
-            <p className="text-stone-600 mt-2 font-serif italic">
+            <p className="text-stone-600 mt-2 font-serif italic text-sm">
               {PROJECT_METADATA.subtitle}
             </p>
+
+            {/* Student Authors Badge */}
+            <div className="mt-4 pt-3 border-t border-stone-100 flex flex-wrap items-center gap-4 text-xs font-mono text-stone-700">
+              <span className="font-bold text-[#163828]">Student Investigators:</span>
+              <span className="bg-emerald-50 px-2.5 py-1 rounded border border-emerald-200 font-semibold text-emerald-950">
+                Nilesh Patra
+              </span>
+              <span className="bg-emerald-50 px-2.5 py-1 rounded border border-emerald-200 font-semibold text-emerald-950">
+                Rishi Bharadwaj
+              </span>
+              <span>· IIT Kharagpur Mentorship Cluster</span>
+            </div>
           </div>
 
           {/* Core Aim */}
@@ -99,7 +124,7 @@ export const ProjectBriefModal: React.FC<ProjectBriefModalProps> = ({ isOpen, on
             <div className="p-4 bg-stone-50 rounded-lg border border-stone-200">
               <h5 className="font-serif font-bold text-stone-900 mb-2">Field Observation Summary</h5>
               <p className="text-stone-600 leading-relaxed text-xs">
-                Observed mature avenue trees across IIT Kharagpur campus. Key observation:
+                Observed mature avenue trees across IIT Kharagpur campus. Key empirical observation:
                 <em className="block my-1 text-stone-800 font-medium">“{PROJECT_METADATA.keyObservation}”</em>
                 Highlighted the need for non-invasive depth testing rather than solely visual exterior checks.
               </p>
@@ -144,7 +169,7 @@ export const ProjectBriefModal: React.FC<ProjectBriefModalProps> = ({ isOpen, on
 
         {/* Modal Footer */}
         <div className="p-4 bg-stone-100 border-t border-stone-200 flex items-center justify-between text-xs text-stone-500 font-mono">
-          <span>NCSC Project Dossier</span>
+          <span>Student Investigators: Nilesh Patra & Rishi Bharadwaj · NCSC Dossier</span>
           <button
             onClick={onClose}
             className="px-4 py-1.5 rounded bg-stone-800 text-white font-semibold cursor-pointer hover:bg-stone-700"

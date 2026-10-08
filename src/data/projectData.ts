@@ -393,18 +393,18 @@ export const NCSC_JOURNEY_STAGES = [
 
 export const TEAM_MEMBERS: TeamMember[] = [
   {
-    name: 'Student Lead Investigator',
-    role: 'Group Leader & Research Design',
-    classGrade: 'Class 9 / Senior Division',
-    school: 'Kendriya Vidyalaya / DAV Public School (IIT Kharagpur Cluster)',
-    contribution: 'Literature review, field survey methodology, ultrasonic wave theory modeling, and project report writing.',
+    name: 'Nilesh Patra',
+    role: 'Student Lead Investigator & Research Design',
+    classGrade: 'Senior Division / High School',
+    school: 'Kendriya Vidyalaya / High School (IIT Kharagpur Cluster)',
+    contribution: 'Project conceptualization, ultrasonic stress wave propagation modeling, wave delay calculations, and methodology development.',
   },
   {
-    name: 'Student Co-Investigator',
-    role: 'Co-Investigator & Field Documentation',
-    classGrade: 'Class 9 / Senior Division',
-    school: 'Kendriya Vidyalaya / DAV Public School (IIT Kharagpur Cluster)',
-    contribution: 'Field survey visual cataloging, physical static model fabrication, logbook recording, and exhibition demonstration.',
+    name: 'Rishi Bharadwaj',
+    role: 'Student Lead Investigator & Field Systems',
+    classGrade: 'Senior Division / High School',
+    school: 'Kendriya Vidyalaya / High School (IIT Kharagpur Cluster)',
+    contribution: 'IIT Kharagpur campus field survey documentation, physical static model fabrication, logbook analysis, and exhibition presentation.',
   },
 ];
 
